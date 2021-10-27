@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 20px">
+      <mat-card style="margin: 50px 0">
+        <mat-card-title class="alert  alert-primary" style="text-align: center">Update Product</mat-card-title>
+        <br><a style="font-size: 20px" routerLink="list-book" (click)="backList()">Back to book list</a>        <form class="update-book" #f="ngForm" (ngSubmit)="f.form.valid && update()">
+          <p><mat-error>{{status}}</mat-error></p>
+          <p>
+            <mat-form-field style="width: 400px" appearance="outline">
+              <mat-label>Title book:</mat-label>
+              <input matInput name="title" #title="ngModel" required [(ngModel)]="book.title">
+              <mat-error *ngIf="title.hasError('required')">Không để trống</mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field style="width: 400px" appearance="outline">
+              <mat-label>Author:</mat-label>
+              <input matInput name="author" #author="ngModel" required [(ngModel)]="book.author">
+              <mat-error *ngIf="author.hasError('required')">Không để trống</mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field style="width: 400px" class="example-full-width" appearance="outline">
+              <mat-label>Description</mat-label>
+              <textarea matInput name="description" placeholder="Description" [(ngModel)]="book.description"></textarea>
+            </mat-form-field>
+          </p>
+          <p>
+            <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Update</button>
+          </p>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>
